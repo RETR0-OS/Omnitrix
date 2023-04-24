@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+  <link rel="stylesheet" href="{% static 'css/items_list.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <section class="Home" id="Home">
+    <div class="carousel_container">
+      <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="false">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{% static 'Images/carousel_img1.jpg' %}" class="d-block w-100" height="500px" alt="Banana Factory Home Image">
+            <div class="carousel-caption d-none d-md-block bg-dark text-white">
+              <h1>Welcome to Green Shoeniverse!</h1>
+              <p>One stop destination for the most stylish and comfortable footwear on the planet!</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'Images/carousel_img2.jpeg' %}" class="d-block w-100" height="500px" alt="...">
+            <div class="carousel-caption d-none d-md-block bg-dark text-white">
+              <h1>Manufatured with love and care</h1>
+              <p>All of our prodects are 100% eco friendly and are manufactured using recycled cloth and shoes.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'Images/carousel_img3.jpg' %}" class="d-block w-100 bg-dark text-white" height="500px" alt="...">
+            <div class="carousel-caption d-none d-md-block bg-dark text-white">
+              <h1>Best deals and offers on the most stylish footwear</h1>
+              <p>Find the best deals and prices on our most stylish and best selling products, making your wardrobe environment <i> and</i> pocket friendly!</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon"aria-hidden="true"></span>
+          <span class="visually-hidden bg-dark">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="AboutUs" id="AboutUs">
+    <div class="col-sm-8 offset-sm-2 text-center justify-content-center mt-5">
+      <h2 class="about_heading">Get To Know Us!</h2>
+      <div class="about_para">
+        <p>With the world population on the rise every year, the amount of waste we produce annually is also growing at an exponential rate. Out of these mountains of garbage, nearly 34 billion pounds is recyclable cloth waste. Keeping in mind this treasure trove that we toss out every year, we have embarked on a mission to rejuvinate the waste cloth and shoes dumpped in our landfills every year, and give them a new life.</p>
+        <p>Here at Green Shoeniverse, we make wonders of waste by collecting nearly 13 million tonnes of waste cloth from different landfills accross the country and recycling them into stunning pair of footwear for you to stay in your comfort zone, in style!</p>
+      </div>
+    </div>
+  <br><br>
+    <div class="new_arrivals col-sm-10 offset-sm-1">
+      <h2 class="text-center">Our New Arrivals</h2>
+      <br><br>
+      <div class="row justify-content-center">
+          {% for new_item in new_items_list %}
+            <div class="card text-center border-primary col-sm-3 mt-3">
+              <div class="card-header badge text-bg-primary">
+                New!
+              </div>
+                <div class="card-body">
+                  <h3 class="card-title">{{new_item.itemName}}</h3>
+                  <img src="{{new_item.itemPic.url}}" alt="A picture of the product" height="200px" width="200px">
+                  {% if new_item.itemDiscountPrice %}
+                    <h5 class="card-title"><s>${{new_item.itemPrice}}</s> ${{new_item.itemDiscountPrice}}</h5>
+                  {% else %}
+                    <h5 class="card-title">${{new_item.itemPrice}}</h5>
+                  {% endif %}
+                  <p class="card-text">{{new_item.itemDescription| slice:":200"}}....</p>
+                  <a href="{{new_item.get_absolute_url}}" class="btn btn-primary"><span>View Product</span></a>
+                </div>
+            </div>
+            <br><br>
+          {% endfor %}
+        </div>
+    </div>
+    <br><br><br><br><br><br>
+  </section>
+{% endblock %}

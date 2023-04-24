@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Roboto+Slab:wght@700&display=swap');
+
+.Register{
+  background-color: white;
+  color: black;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-radius: 15px;
+}
+
+.EditAccount, .ChangePassword{
+  text-align: center;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: white;
+  color:black;
+  border-radius: 15px;
+  padding: 3%;
+  box-sizing: border-box;
+  font-size: 2.5vh;
+}
+.submit_button{
+  background-color: #0d6efd;
+  color:white;
+  font-size: 3vh;
+  border-radius: 15px;
+  font-weight: bold;
+  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto Slab', serif;
+  padding: 10px;
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.submit_button:hover{
+  background-color: #1934ff;
+}
+
+.back_button{
+  background-color: #FFC107;
+  color:black;
+  font-size: 3vh;
+  border-radius: 15px;
+  font-weight: bold;
+  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto Slab', serif;
+  padding: 10px;
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.back_button:hover{
+  color: black;
+  background-color:#d6cf04;
+}

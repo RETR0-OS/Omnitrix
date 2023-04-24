@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Vina+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap');
+.carousel_container{
+  width: 95%;
+  top:0;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+}
+
+.carousel_container h1{
+  font-family: 'Vina Sans', cursive;
+}
+
+.carousel_container p{
+  font-family: 'Instrument Serif', serif;
+  font-size: 2rem;
+}
+
+.new_arrivals{
+  color: black;
+}
+
+.new_arrivals h2{
+  color: white;
+}
+
+.AboutUs .about_heading{
+  font-family: 'Vina Sans', cursive;
+  font-size: 5rem;
+}
+
+.AboutUs .about_para{
+  font-family: 'Instrument Serif', serif;
+  font-size: 2rem;
+}

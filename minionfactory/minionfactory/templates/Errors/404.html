@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <h1>Lost Your Way?</h1>
+  <h3>No Problem!</h3>
+  <h4>We will take you <a class="btn btn-primary" href="{% url 'home' %}">Home!</a></h4>
+  <img src="{% static 'Images/404.jpeg' %}" alt="404 image">
+{% endblock %}

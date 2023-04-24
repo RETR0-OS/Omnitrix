@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/items_list.css' %}">
+  <section class="Shop" id="Shop">
+    <div class="col-sm-12 ms-5 mt-3 mb-4">
+      <form class="" action="{% url 'ecommerce:search_for_product' %}" method="GET">
+        <input type="text" name="query" placeholder="Find the right kicks...search by name, description or prices!" class="col-sm-11"><button type="submit" class="btn btn-primary ms-1 " name="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+    </div>
+    <div class="container">
+      <div class="row">
+        {% for item in object_list %}
+          <div class="col mt-3 mb-3">
+            <div class="card shadow p-3 bg-body rounded" style="width: 18rem;">
+              <img src="{{item.itemPic.url}}" class="card-img-top" alt="Product Picture">
+              <div class="card-body">
+                <h5 class="card-title">{{item.itemName}}</h5>
+                {% if item.itemDiscountPrice %}
+                <h6 class="card-title"><s>${{item.itemPrice}}</s> ${{item.itemDiscountPrice}}</h6>
+                {% else %}
+                <h5 class="card-title">${{item.itemPrice}}</h5>
+                {% endif %}
+                <p class="card-text">{{item.itemDescription| slice:":50"}}....</p>
+                <a href='{{item.get_absolute_url}}' class="btn btn-primary"><span>View Product</span></a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <!--Pagination-->
+    {% if is_paginated %}
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{page_obj.previous_page_number}}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+        {% endif %}
+        <li class="page-item"><p class="page-link">{{page_obj.number}}</p></li>
+        {% if page_obj.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{page_obj.next_page_number}}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+    {% endif %}
+    <br><br><br>
+  </section>
+{% endblock %}
